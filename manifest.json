@@ -1,0 +1,48 @@
+{
+  "id": "control",
+  "name": "操作电脑",
+  "name_en": "Computer control",
+  "version": "0.1.0",
+  "description": "移动鼠标、点击、输入文字、按键、列出并切换窗口。危险：会给模型操作桌面的能力。",
+  "description_en": "Move the mouse, click, type text, press keys, list and focus windows. Dangerous: gives the model control over your desktop.",
+  "author": "yushuchun177",
+  "homepage": "https://github.com/yushuchun177/localharness-plugin-control",
+  "min_app": "0.1.0",
+  "tools": [
+    {
+      "name": "pc_move",
+      "description": "把鼠标移动到屏幕坐标 (x, y)。",
+      "params": {"x": "int", "y": "int"},
+      "dangerous": true
+    },
+    {
+      "name": "pc_click",
+      "description": "在坐标 (x, y) 点击，button 可选 left/right/double。",
+      "params": {"x": "int", "y": "int", "button": "string，可选"},
+      "dangerous": true
+    },
+    {
+      "name": "pc_type",
+      "description": "把一段文字输入到当前焦点窗口。",
+      "params": {"text": "string"},
+      "dangerous": true
+    },
+    {
+      "name": "pc_key",
+      "description": "按一个组合键，用 SendKeys 语法，例如 ^c 复制、{ENTER}、%{TAB}。",
+      "params": {"keys": "string"},
+      "dangerous": true
+    },
+    {
+      "name": "pc_windows",
+      "description": "列出当前有标题的窗口（标题 + 进程名 + 是否前台）。",
+      "params": {}
+    },
+    {
+      "name": "pc_focus",
+      "description": "按标题关键字把某个窗口切到前台。",
+      "params": {"title": "string，标题关键字"},
+      "dangerous": true
+    }
+  ]
+}
