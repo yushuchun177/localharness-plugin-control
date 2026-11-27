@@ -12,25 +12,36 @@
     {
       "name": "pc_move",
       "description": "把鼠标移动到屏幕坐标 (x, y)。",
-      "params": {"x": "int", "y": "int"},
+      "params": {
+        "x": "int",
+        "y": "int"
+      },
       "dangerous": true
     },
     {
       "name": "pc_click",
       "description": "在坐标 (x, y) 点击，button 可选 left/right/double。",
-      "params": {"x": "int", "y": "int", "button": "string，可选"},
+      "params": {
+        "x": "int",
+        "y": "int",
+        "button": "string，可选"
+      },
       "dangerous": true
     },
     {
       "name": "pc_type",
       "description": "把一段文字输入到当前焦点窗口。",
-      "params": {"text": "string"},
+      "params": {
+        "text": "string"
+      },
       "dangerous": true
     },
     {
       "name": "pc_key",
       "description": "按一个组合键，用 SendKeys 语法，例如 ^c 复制、{ENTER}、%{TAB}。",
-      "params": {"keys": "string"},
+      "params": {
+        "keys": "string"
+      },
       "dangerous": true
     },
     {
@@ -41,8 +52,19 @@
     {
       "name": "pc_focus",
       "description": "按标题关键字把某个窗口切到前台。",
-      "params": {"title": "string，标题关键字"},
+      "params": {
+        "title": "string，标题关键字"
+      },
       "dangerous": true
+    }
+  ],
+  "settings": [
+    {
+      "key": "delay_ms",
+      "label": "每步操作前等待（毫秒）",
+      "type": "int",
+      "default": 120,
+      "help": "给界面一点反应时间，太小容易点空"
     }
   ]
 }
