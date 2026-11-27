@@ -3,6 +3,7 @@
   "name": "操作电脑",
   "name_en": "Computer control",
   "version": "0.1.0",
+  "license": "GPL-3.0",
   "description": "移动鼠标、点击、输入文字、按键、列出并切换窗口。危险：会给模型操作桌面的能力。",
   "description_en": "Move the mouse, click, type text, press keys, list and focus windows. Dangerous: gives the model control over your desktop.",
   "author": "yushuchun177",
