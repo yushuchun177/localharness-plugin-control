@@ -24,10 +24,15 @@
       "label": "每步操作前等待（毫秒）",
       "type": "int",
       "default": 120,
-      "help": "给界面一点反应时间，太小容易点空",
       "min": 0,
-      "max": 2000,
+      "max": 1000,
       "unit": "毫秒"
+    },
+    {
+      "key": "safe_mode",
+      "label": "安全模式（只读）",
+      "type": "bool",
+      "default": false
     }
   ],
   "tools": [
