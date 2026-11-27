@@ -8,6 +8,16 @@ extends Node
 const PS_HEAD := "Add-Type -AssemblyName System.Windows.Forms;"
 
 
+func _pref(key: String, def_value):
+	var ml := Engine.get_main_loop()
+	var prefs = ml.root.get_node_or_null("/root/PluginPrefs") if ml != null else null
+	return prefs.get_value("control", key, def_value) if prefs != null else def_value
+
+
+func _wait() -> void:
+	OS.delay_msec(int(_pref("delay_ms", 120)))
+
+
 func run(tool: String, args: Dictionary) -> Dictionary:
 	match tool:
 		"pc_move":
@@ -57,6 +67,7 @@ func _click(args: Dictionary) -> Dictionary:
 	var x := int(args.get("x", 0))
 	var y := int(args.get("y", 0))
 	var btn := str(args.get("button", "left"))
+	_wait()
 	var script := (
 		"Add-Type -Namespace W -Name U -MemberDefinition '[DllImport(\"user32.dll\")] public static extern void mouse_event(uint f,uint dx,uint dy,uint d,uint e);';" +
 		"[System.Windows.Forms.Cursor]::Position = New-Object System.Drawing.Point(%d,%d);Start-Sleep -Milliseconds 60;" % [x, y]
@@ -117,6 +128,7 @@ func _focus(args: Dictionary) -> Dictionary:
 	var title := str(args.get("title", "")).strip_edges()
 	if title == "":
 		return {"ok": false, "output": "title 不能为空"}
+	_wait()
 	var script := (
 		"Add-Type -Namespace W -Name U -MemberDefinition '[DllImport(\"user32.dll\")] public static extern bool SetForegroundWindow(IntPtr h);[DllImport(\"user32.dll\")] public static extern bool ShowWindow(IntPtr h,int c);';" +
 		"$p = Get-Process | Where-Object { $_.MainWindowTitle -like '*" + title.replace("'", "''") + "*' } | Select-Object -First 1;" +
