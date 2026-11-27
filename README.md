@@ -38,7 +38,8 @@ Move the mouse, click, type text, press keys, list and focus windows. Dangerous:
 
 ## 设置项
 
-- **每步操作前等待（毫秒）**（`delay_ms`，默认 `120`）给界面一点反应时间，太小容易点空
+- **每步操作前等待（毫秒）**（`delay_ms`，默认 `120`）
+- **安全模式（只读）**（`safe_mode`，默认 `False`）
 
 ## 权限
 
@@ -100,7 +101,8 @@ Manual: unzip this repo into `%LOCALAPPDATA%\Godot\app_userdata\Local-Harness\pl
 
 ## Settings
 
-- **每步操作前等待（毫秒）** (`delay_ms`, default `120`) 给界面一点反应时间，太小容易点空
+- **每步操作前等待（毫秒）** (`delay_ms`, default `120`) 
+- **安全模式（只读）** (`safe_mode`, default `False`) 
 
 ## Permissions
 
