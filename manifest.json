@@ -8,6 +8,27 @@
   "author": "yushuchun177",
   "homepage": "https://github.com/yushuchun177/localharness-plugin-control",
   "min_app": "0.1.0",
+  "requires": {
+    "os": "Windows 10+",
+    "deps": [
+      "PowerShell"
+    ],
+    "disk": "< 1 MB",
+    "memory": "约 10 MB",
+    "network": false
+  },
+  "settings": [
+    {
+      "key": "delay_ms",
+      "label": "每步操作前等待（毫秒）",
+      "type": "int",
+      "default": 120,
+      "help": "给界面一点反应时间，太小容易点空",
+      "min": 0,
+      "max": 2000,
+      "unit": "毫秒"
+    }
+  ],
   "tools": [
     {
       "name": "pc_move",
@@ -16,7 +37,11 @@
         "x": "int",
         "y": "int"
       },
-      "dangerous": true
+      "dangerous": true,
+      "level": "act",
+      "needs": [
+        "鼠标"
+      ]
     },
     {
       "name": "pc_click",
@@ -26,7 +51,12 @@
         "y": "int",
         "button": "string，可选"
       },
-      "dangerous": true
+      "dangerous": true,
+      "level": "danger",
+      "needs": [
+        "鼠标",
+        "操作你的界面"
+      ]
     },
     {
       "name": "pc_type",
@@ -34,7 +64,11 @@
       "params": {
         "text": "string"
       },
-      "dangerous": true
+      "dangerous": true,
+      "level": "danger",
+      "needs": [
+        "键盘"
+      ]
     },
     {
       "name": "pc_key",
@@ -42,12 +76,20 @@
       "params": {
         "keys": "string"
       },
-      "dangerous": true
+      "dangerous": true,
+      "level": "danger",
+      "needs": [
+        "键盘"
+      ]
     },
     {
       "name": "pc_windows",
       "description": "列出当前有标题的窗口（标题 + 进程名 + 是否前台）。",
-      "params": {}
+      "params": {},
+      "level": "read",
+      "needs": [
+        "窗口信息"
+      ]
     },
     {
       "name": "pc_focus",
@@ -55,16 +97,11 @@
       "params": {
         "title": "string，标题关键字"
       },
-      "dangerous": true
-    }
-  ],
-  "settings": [
-    {
-      "key": "delay_ms",
-      "label": "每步操作前等待（毫秒）",
-      "type": "int",
-      "default": 120,
-      "help": "给界面一点反应时间，太小容易点空"
+      "dangerous": true,
+      "level": "danger",
+      "needs": [
+        "窗口控制"
+      ]
     }
   ]
 }
